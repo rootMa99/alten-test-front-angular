@@ -1,0 +1,40 @@
+<div class="filters">
+    <input
+      type="text"
+      placeholder="Search by name..."
+      [(ngModel)]="searchText"
+      (input)="filterProducts()"
+      class="search-input"
+    />
+    <select [(ngModel)]="selectedCategory" (change)="filterProducts()" class="category-filter">
+      <option value="">All Categories</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+  <div class="product-card-container">
+    <div *ngFor="let product of paginate(filteredProducts)" class="product-card">
+      <div class="product-category">{{ product.category }}</div>
+      <img class="product-image" [src]="product.image" alt="{{ product.name }}">
+      <h3 class="product-name">{{ product.name }}</h3>
+      <div class="price-section">
+        <span class="price">{{ product.price }}MAD</span>
+      </div>
+      <div class="rating">
+        <span class="rating-text">Rating:</span>
+        <span *ngFor="let star of [].constructor(product.rating); let i = index">
+          &#9733;
+        </span>
+      </div>
+      <p class="description">{{ product.description }}</p>
+      <div class="stock-status" [ngClass]="{'low-stock': product.inventoryStatus === 'LOWSTOCK', 'in-stock': product.inventoryStatus !== 'LOWSTOCK'}">
+        <strong>{{ product.inventoryStatus === 'LOWSTOCK' ? 'Limited Stock' : 'In Stock' }}</strong>
+      </div>
+      <button class="cta-button" (click)="addToCart(product)">Add to Cart</button>
+    </div>
+  </div>
+  <div class="pagination">
+    <button (click)="changePage(currentPage - 1)" [disabled]="currentPage <= 1"><</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="changePage(currentPage + 1)">></button>    
+  </div>
+  

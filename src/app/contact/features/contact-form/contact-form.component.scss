@@ -1,0 +1,82 @@
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+  
+    .form-group {
+      margin-bottom: 15px;
+  
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+  
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+    }
+  
+    .error {
+      color: #d9534f;
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+  
+    .btn-submit {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+  
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  
+    .success-message {
+      color: #28a745;
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+  
+  .success-message {
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #e6f7e9;
+    padding: 10px;
+    border: 1px solid #28a745;
+    border-radius: 5px;
+    animation: fadeIn 0.5s ease;
+  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+  
